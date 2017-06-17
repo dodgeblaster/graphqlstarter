@@ -18,10 +18,6 @@ alias switchdesktop=switchdesktop
 
 #START SCRIPT
 switchdesktop 2
-cd ~/Desktop/GoogleDrive &&
-atom codeNotes -background &&
-
-cd ~/Desktop/graphQLTest &&
 atom .
 
 sleep 5
@@ -30,9 +26,7 @@ switchdesktop 1
 open http://www.graphql.org/learn &&
 open http://www.google.com
 
-
 sleep 2
-
 # 3. stop all dockers
 CONTAINERS= docker ps -a -q
 if [ -n $CONTAINERS ]; then
