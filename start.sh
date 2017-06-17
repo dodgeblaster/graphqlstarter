@@ -34,5 +34,8 @@ if [ -n $CONTAINERS ]; then
     docker rm $(docker ps -a -q)
 fi
 
+PATH=`pwd`
+docker run --name mongo-database -d -v $PATH/data:/data -p 27017:27017 mongo
+
 switchdesktop 2
 # node app.js
