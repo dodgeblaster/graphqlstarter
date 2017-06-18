@@ -1,4 +1,4 @@
-const insertPlacesFunction = require('../../../db/methods/insertPlaces.js')
+const insertPlacesFunction = require('../../../db/dev/methods/insertPlaces.js')
 
 const {
     GraphQLObjectType,

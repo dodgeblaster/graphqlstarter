@@ -1,13 +1,12 @@
 const { GraphQLList }   = require('graphql')
 const placeType         = require('../types/place.js')
-const fakedb            = require('../../db')
-
-const returnArray = o => Object.keys(o).map(k => o[k])
+const getAllPlaces      = require('../../db/methods/places/getAllPlaces.js')
 
 const place = {
     type: new GraphQLList(placeType),
     resolve: () => {
-        return returnArray(fakedb['places'])
+        const allPlaces = getAllPlaces()
+        return allPlaces
     }
 }
 

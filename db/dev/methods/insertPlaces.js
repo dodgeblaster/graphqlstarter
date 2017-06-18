@@ -1,4 +1,4 @@
-const db = require('../index.js')
+const db = require('../../index.js')
 const mockPlaces = require('../mockData/places.js')
 
 module.exports = () => {

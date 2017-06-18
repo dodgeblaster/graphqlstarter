@@ -1,5 +1,6 @@
 const placeType     = require('../types/place.js')
-const fakedb        = require('../../db')
+const createPlaceFunction = require('../../db/methods/places/createPlace.js')
+
 const {
     GraphQLList,
     GraphQLObjectType,
@@ -22,7 +23,9 @@ const createPlace = {
             name: args.name,
             age: args.age
         }
-        fakedb.places[args.name] = place
+
+        createPlaceFunction(place)
+
         return place
     }
 }
