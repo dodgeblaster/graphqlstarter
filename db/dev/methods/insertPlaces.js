@@ -3,12 +3,8 @@ const Place      = mongoose.model('Place')
 const mockPlaces = require('../mockData/places.js')
 
 module.exports = () => {
-    try {
-        Object.keys(mockPlaces).forEach(k => {
-            const newPlace = new Place(mockPlaces[k])
-            newPlace.save()
-        })
-    } catch(e) {
-        throw e
-    }
+    Object.keys(mockPlaces).forEach(k => {
+        const newPlace = new Place(mockPlaces[k])
+        newPlace.save()
+    })
 }

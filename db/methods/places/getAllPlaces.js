@@ -6,6 +6,6 @@ module.exports = async () => {
         const places = await Place.find()
         return places
     } catch(e) {
-        throw 'hey'
+        throw e
     }
 }
