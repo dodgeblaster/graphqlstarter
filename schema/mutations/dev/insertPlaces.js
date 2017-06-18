@@ -1,15 +1,15 @@
-const insertPlacesFunction = require('../../../db/dev/methods/insertPlaces.js')
+const insertPlaces = require('../../../db/dev/methods/insertPlaces.js')
 
 const {
     GraphQLObjectType,
     GraphQLString
 } = require('graphql')
 
-const insertPlaces = {
+const insertPlacesMutation = {
     type: GraphQLString,
     resolve: (root, args, context) => {
         if (process.env.NODE_ENV === 'dev') {
-            insertPlacesFunction()
+            insertPlaces()
             return 'OK!'
         }
 
@@ -18,4 +18,4 @@ const insertPlaces = {
     }
 }
 
-module.exports = insertPlaces
+module.exports = insertPlacesMutation

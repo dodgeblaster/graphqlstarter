@@ -2,7 +2,7 @@ const { GraphQLList }   = require('graphql')
 const placeType         = require('../types/place.js')
 const getAllPlaces      = require('../../db/methods/places/getAllPlaces.js')
 
-const place = {
+const placeQuery = {
     type: new GraphQLList(placeType),
     resolve: () => {
         const allPlaces = getAllPlaces()
@@ -10,4 +10,4 @@ const place = {
     }
 }
 
-module.exports = place
+module.exports = placeQuery

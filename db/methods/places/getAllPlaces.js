@@ -1,7 +1,11 @@
-const db = require('../../index.js')
+const mongoose  = require('mongoose')
+const Place     = mongoose.model('Place')
 
-const returnArray = o => {
-    return Object.keys(o).map(k => o[k])
+module.exports = async () => {
+    try {
+        const places = await Place.find()
+        return places
+    } catch(e) {
+        throw 'hey'
+    }
 }
-
-module.exports = () => returnArray(db['places'])

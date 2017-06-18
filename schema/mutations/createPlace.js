@@ -1,6 +1,5 @@
 const placeType     = require('../types/place.js')
-const createPlaceFunction = require('../../db/methods/places/createPlace.js')
-
+const createPlace   = require('../../db/methods/places/createPlace.js')
 const {
     GraphQLList,
     GraphQLObjectType,
@@ -8,7 +7,7 @@ const {
     GraphQLInt
 } = require('graphql')
 
-const createPlace = {
+const createPlaceMutation = {
     type: placeType,
     args: {
         name: {
@@ -18,16 +17,20 @@ const createPlace = {
             type: GraphQLInt
         }
     },
-    resolve: (root, args, context) => {
+    resolve: async (root, args, context) => {
         const place = {
             name: args.name,
             age: args.age
         }
 
-        createPlaceFunction(place)
-
-        return place
+        try {
+            const result = await createPlace(place)
+            return result
+        } catch(e) {
+            console.log('error')
+            throw e
+        }
     }
 }
 
-module.exports = createPlace
+module.exports = createPlaceMutation

@@ -1,5 +1,11 @@
-const db = require('../../index.js')
+const mongoose  = require('mongoose')
+const Place     = mongoose.model('Place')
 
-module.exports = place => {
-    db.places[place.name] = place
+module.exports = async place => {
+    try {
+        const result = await (new Place(place)).save()
+        return result
+    } catch(e) {
+        throw e
+    }
 }
